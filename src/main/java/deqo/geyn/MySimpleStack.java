@@ -36,6 +36,14 @@ public class MySimpleStack implements SimpleStack {
     }
 
     @Override
+    public Item peekDown() throws EmptyStackException {
+        if (this.getSize() == 0){
+            throw(new EmptyStackException());
+        }
+        return this.items.get(0);
+    }
+
+    @Override
     public Item pop() throws EmptyStackException {
         if (this.getSize() == 0){
             throw(new EmptyStackException());

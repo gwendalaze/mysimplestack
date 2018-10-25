@@ -1,5 +1,6 @@
 package deqo.geyn;
 
+import static org.mockito.Mockito.*;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -15,7 +16,7 @@ public class MySimpleStackTest {
     @Before
     public void setUp(){
         stack = new MySimpleStack();
-        testItem = new Item(5);
+        testItem = mock(Item.class);
     }
 
     @Test
@@ -50,8 +51,7 @@ public class MySimpleStackTest {
     @Test
     public void pop() {
         stack.push(testItem);
-        int val = stack.peek().getValue();
-        assertEquals(stack.pop().getValue(),val);
+        assertSame(stack.pop(),testItem);
     }
 
     @Test (expected = EmptyStackException.class)

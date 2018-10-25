@@ -45,6 +45,15 @@ public class MySimpleStack implements SimpleStack {
         return r;
     }
 
+    public Item popDown() throws EmptyStackException {
+        if (this.getSize() == 0){
+            throw(new EmptyStackException());
+        }
+        Item r = this.items.get(0);
+        this.items.remove(0);
+        return r;
+    }
+
     private int getLastIndex(){
         return this.getSize()-1;
     }
